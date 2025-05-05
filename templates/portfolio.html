@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Bosh sahifa</a></li>
+                <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}">Bog'lanish</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Mening loyhalarim</h1>
+        <div class="projects">
+            {% for project in projects %}
+            <div class="project">
+                <h2>{{ project[1] }}</h2>
+                <p>{{ project[2] }}</p>
+                <img src="{{ project[3] }}" alt="{{ project[1] }}">
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mening Portfolio Saytim</p>
+    </footer>
+</body>
+</html>
